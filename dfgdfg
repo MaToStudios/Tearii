@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Evästeiden hyväksyminen</title>
+</head>
+<body>
+
+  <div id="cookie-notice" style="display:none;">
+    <p>Tämä sivusto käyttää evästeitä parantaakseen käyttökokemustasi.</p>
+    <button onclick="setCookie()">Hyväksyn evästeet</button>
+  </div>
+
+  <script>
+    function setCookie() {
+      document.cookie = "cookieConsent=true; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
+      document.getElementById("cookie-notice").style.display = "none";
+    }
+
+    function checkCookie() {
+      if (document.cookie.indexOf("cookieConsent=true") === -1) {
+        document.getElementById("cookie-notice").style.display = "block";
+      }
+    }
+
+    window.onload = checkCookie;
+  </script>
+
+</body>
+</html>
